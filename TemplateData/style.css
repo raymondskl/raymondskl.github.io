@@ -2,6 +2,8 @@
 .webgl-content * {background-color: black;border: 0; margin: 0; padding: 0}
 .webgl-content { background-color: black; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 
+.webgl-content-left {background-color: white; position: absolute; top: 50%; left: 25%; -webkit-transform: translate(-25%, -50%); transform: translate(-25%, -50%);}
+
 .webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 .webgl-content .logo {background: url('progressLogo.Light.png') no-repeat center / contain; width: 154px; height: 130px;}
 .webgl-content .progress {height: 18px; width: 141px; margin-top: 90px;}
