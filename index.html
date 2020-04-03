@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
-    </script>
+
     <script type="text/javascript"> 
+
+    var unityInstance;
+  
     var isMobile = false; //initiate as false
     // device detection
     if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -19,9 +20,41 @@
         isMobile = true;
     }
 
+    function hide(id) 
+    {
+      var e = document.getElementById(id);
+      e.style.display = 'none';        
+    }
+
+    function show(id){
+      var e = document.getElementById(id);
+      e.style.display = 'block';
+    }
+
+    function instantiateInstance{
+       UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
+    }
+
+    if(isMobile){
+      hide("unityContainer");
+      show("unityContainer-mobile");
+    } else {
+      hide("unityContainer-mobile");
+      show("unityContainer");
+      instantiateInstance();
+    }
+
+    </script>  
 
 
+    <script>
+    //  var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Build.json", {onProgress: UnityProgress});
     </script>
+
+
+
+
+    
   </head>
   <body bgcolor="#000000">
     <div class="webgl-content">
